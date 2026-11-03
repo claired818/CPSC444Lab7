@@ -179,6 +179,25 @@ function createWindow(x) {
 [-8, 0, 8].forEach(createWindow);
 
 // Exterior scenery sits behind the back wall and is visible through the panes.
+
+const outdoorTexture =
+    loader.load(
+        "textures/lake_view.jpg"
+    );
+const outdoorView =
+    new THREE.Mesh(
+        new THREE.PlaneGeometry(10, 6),
+        new THREE.MeshBasicMaterial({
+            map: outdoorTexture
+        })
+);
+outdoorView.position.set(
+    7,
+    4,
+    -15
+);
+scene.add(outdoorView);
+
 const outdoorGround = new THREE.Mesh(
 	new THREE.PlaneGeometry(200, 200),
 	new THREE.MeshBasicMaterial({ color: 0x5d9b45 })
@@ -187,19 +206,19 @@ outdoorGround.rotation.x = -Math.PI / 2;
 outdoorGround.position.set(0, -0.1, -70);
 scene.add(outdoorGround);
 
-const outdoorTreeTrunk = new THREE.Mesh(
-	new THREE.CylinderGeometry(0.35, 0.5, 5, 12),
-	new THREE.MeshBasicMaterial({ color: 0x70452a })
-);
-outdoorTreeTrunk.position.set(8, 2.5, -32);
-scene.add(outdoorTreeTrunk);
+// const outdoorTreeTrunk = new THREE.Mesh(
+// 	new THREE.CylinderGeometry(0.35, 0.5, 5, 12),
+// 	new THREE.MeshBasicMaterial({ color: 0x70452a })
+// );
+// outdoorTreeTrunk.position.set(8, 2.5, -32);
+// scene.add(outdoorTreeTrunk);
 
-const outdoorTreeLeaves = new THREE.Mesh(
-	new THREE.SphereGeometry(2.8, 16, 12),
-	new THREE.MeshBasicMaterial({ color: 0x347b38 })
-);
-outdoorTreeLeaves.position.set(8, 6, -32);
-scene.add(outdoorTreeLeaves);
+// const outdoorTreeLeaves = new THREE.Mesh(
+// 	new THREE.SphereGeometry(2.8, 16, 12),
+// 	new THREE.MeshBasicMaterial({ color: 0x347b38 })
+// );
+// outdoorTreeLeaves.position.set(8, 6, -32);
+// scene.add(outdoorTreeLeaves);
 
 //
 // TV STAND
@@ -290,10 +309,18 @@ scene.add(magazine);
 // FIREPLACE
 //
 
+const fireplaceColor = textureLoader.load("textures/fireplace/fireplace_bricks_diff.jpg");
+const fireplaceNormal = textureLoader.load("textures/fireplace/fireplace_bricks_nor.jpg");
+const fireplaceRoughness = textureLoader.load("textures/fireplace/fireplace_bricks_rough.jpg");
+const fireplaceAO = textureLoader.load("textures/fireplace/fireplace_bricks_ao.jpg");
+
 const fireplace = new THREE.Mesh(
 	new THREE.BoxGeometry(4, 3, 1),
 	new THREE.MeshStandardMaterial({
-		color: 0x555555
+		map: fireplaceColor,
+		normalMap: fireplaceNormal,
+		roughnessMap: fireplaceRoughness,
+		aoMap: fireplaceAO
 	})
 );
 
