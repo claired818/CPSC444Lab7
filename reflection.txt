@@ -1,0 +1,10 @@
+1. What is the purpose of a color map?
+    The purpose of a color map is to add the flat colors of the texture.
+2. What does a normal map simulate?
+    The normal map simulates different heights in the surface of the texture without adding any polygons.
+3. How does a roughness map affect lighting?
+    The roughness map dictates which parts of the texture reflect lighting really well and which ones not so much.
+4. Which texture improved realism the most and why?
+    I think the floor texture improved realism the most because it had the most widespread effect and impacted the most surface area.
+5. What advantages do texture maps have over adding more geometry?
+    Texture maps are easier to line up since you apply them to the existing geometry, whereas adding more geometry you have to carefully align it with the existing geometry.
