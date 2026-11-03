@@ -34,6 +34,8 @@ renderer.shadowMap.enabled = true;
 
 document.body.appendChild(renderer.domElement);
 
+const textureLoader = new THREE.TextureLoader();
+
 //
 // LIGHTING
 //
@@ -66,10 +68,18 @@ scene.add(fireplaceLight);
 // FLOOR
 //
 
+const floorColor = textureLoader.load("textures/floor/wooden_floor_diff.jpg");
+const floorNormal = textureLoader.load("textures/floor/wooden_floor_nor.jpg");
+const floorRoughness = textureLoader.load("textures/floor/wooden_floor_rough.jpg");
+const floorAO = textureLoader.load("textures/floor/wooden_floor_ao.jpg");
+
 const floor = new THREE.Mesh(
 	new THREE.PlaneGeometry(24, 24),
 	new THREE.MeshStandardMaterial({
-		color: 0x8b5a2b
+		map: floorColor,
+		normalMap: floorNormal,
+		roughnessMap: floorRoughness,
+		aoMap: floorAO
 	})
 );
 
