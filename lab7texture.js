@@ -138,8 +138,16 @@ createWall(12, 4, 0, 0.5, 8, 24);
 // WINDOW
 //
 
+const windowFrameColor = textureLoader.load("textures/windowFrame/window_frame_diff.jpg");
+const windowFrameNormal = textureLoader.load("textures/windowFrame/window_frame_nor.jpg");
+const windowFrameRoughness = textureLoader.load("textures/windowFrame/window_frame_rough.jpg");
+const windowFrameAO = textureLoader.load("textures/windowFrame/window_frame_ao.jpg");
+
 const windowFrameMaterial = new THREE.MeshStandardMaterial({
-	color: 0x4a3527
+	map: windowFrameColor,
+	normalMap: windowFrameNormal,
+	roughnessMap: windowFrameRoughness,
+	aoMap: windowFrameAO
 });
 
 const windowGlassMaterial = new THREE.MeshPhysicalMaterial({
@@ -224,10 +232,16 @@ scene.add(outdoorGround);
 // TV STAND
 //
 
+const tvStandColor = textureLoader.load("textures/tvStand/tv_stand_wood_diff.jpg");
+const tvStandNormal = textureLoader.load("textures/tvStand/tv_stand_wood_nor.jpg");
+const tvStandRoughness = textureLoader.load("textures/tvStand/tv_stand_wood_rough.jpg");
+
 const tvStand = new THREE.Mesh(
 	new THREE.BoxGeometry(5, 1, 1.5),
 	new THREE.MeshStandardMaterial({
-		color: 0x3a2a20
+		map: tvStandColor,
+		normalMap: tvStandNormal,
+		roughnessMap: tvStandRoughness
 	})
 );
 
