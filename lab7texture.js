@@ -318,10 +318,16 @@ scene.add(fire);
 // DOOR
 //
 
+const doorColor = textureLoader.load("textures/door/wooden_door_diff.jpg");
+const doorNormal = textureLoader.load("textures/door/wooden_door_nor.jpg");
+const doorRoughness = textureLoader.load("textures/door/wooden_door_rough.jpg");
+
 const door = new THREE.Mesh(
 	new THREE.BoxGeometry(2, 4, 0.15),
 	new THREE.MeshStandardMaterial({
-		color: 0x5b3a29
+		map: doorColor,
+		normalMap: doorNormal,
+		roughnessMap: doorRoughness
 	})
 );
 
